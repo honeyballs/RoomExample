@@ -1,6 +1,7 @@
 package de.thm.roomexample;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.list_layout);
         listView = findViewById(R.id.mainListView);
         listView.setOnItemLongClickListener(new AbteilungsDeleteListener());
         abteilungen = new ArrayList<>();
@@ -115,6 +115,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    class AbteilungsClickListener implements ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(MainActivity.this, MitarbeiterListActivity.class);
+            intent.putExtra("abteilungs_id", abteilungen.get(position).getId());
+            intent.putExtra("abteilungs_name", abteilungen.get(position).getName());
+            startActivity(intent);
+        }
     }
 
     class AbteilungsDeleteListener implements ListView.OnItemLongClickListener {

@@ -11,14 +11,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First name"
+        android:text="Vorname"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First name"
+        android:hint="Vorname"
         android:id="@+id/firstNameField"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
@@ -29,14 +29,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Last name"
+        android:text="Nachname"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last name"
+        android:hint="Nachname"
         android:id="@+id/lastNameField"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date of birth"
+        android:text="Geburtstag"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
 
@@ -99,14 +99,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salary"
+        android:text="Gehalt"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Salary"
+        android:hint="Gehalt"
         android:id="@+id/salaryField"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"

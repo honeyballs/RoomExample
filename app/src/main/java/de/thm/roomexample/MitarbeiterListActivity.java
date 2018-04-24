@@ -45,6 +45,7 @@ public class MitarbeiterListActivity extends AppCompatActivity {
         adapter = new MitarbeiterAdapter(this, mitarbeiter);
         listView.setAdapter(adapter);
         listView.setOnItemLongClickListener(new MitarbeiterDeleteListener());
+        listView.setOnItemClickListener(new MitarbeiterDetailListener());
 
         //Get the selected id of the Abteilung
         Bundle extras = getIntent().getExtras();
@@ -93,6 +94,17 @@ public class MitarbeiterListActivity extends AppCompatActivity {
         this.mitarbeiter.clear();
         this.mitarbeiter.addAll(mitarbeiter);
         adapter.notifyDataSetChanged();
+    }
+
+    class MitarbeiterDetailListener implements ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(MitarbeiterListActivity.this, MitarbeiterDetailActivity.class);
+            intent.putExtra("mitarbeiter_id", mitarbeiter.get(position).getId());
+            startActivity(intent);
+        }
+
     }
 
     class MitarbeiterDeleteListener implements ListView.OnItemLongClickListener {

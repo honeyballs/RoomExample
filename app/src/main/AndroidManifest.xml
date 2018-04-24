@@ -20,5 +20,7 @@
 
         <activity android:name=".AddMitarbeiterActivity" android:label="Mitarbeiter hinzufügen"  android:noHistory="true"/>
 
+        <activity android:name=".MitarbeiterDetailActivity" android:label="Details"/>
+
     </application>
 </manifest>

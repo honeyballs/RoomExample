@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.list_layout);
         listView = findViewById(R.id.mainListView);
         listView.setOnItemLongClickListener(new AbteilungsDeleteListener());
+        listView.setOnItemClickListener(new AbteilungsClickListener());
         abteilungen = new ArrayList<>();
         abteilungsAdapter = new AbteilungsAdapter(this, abteilungen);
         listView.setAdapter(abteilungsAdapter);

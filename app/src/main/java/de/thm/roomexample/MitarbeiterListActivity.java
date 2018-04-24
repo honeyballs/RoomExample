@@ -1,6 +1,7 @@
 package de.thm.roomexample;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -52,6 +53,8 @@ public class MitarbeiterListActivity extends AppCompatActivity {
             this.abteilungsName = extras.getString("abteilungs_name", "");
             setTitle(abteilungsName);
         }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -65,7 +68,12 @@ public class MitarbeiterListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_item:
+                Intent intent = new Intent(this, AddMitarbeiterActivity.class);
+                intent.putExtra("abteilungs_id", abteilungsId);
+                startActivity(intent);
                 return true;
+            case android.R.id.home:
+                onBackPressed();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -123,22 +131,6 @@ public class MitarbeiterListActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Mitarbeiter> mitarbeiter) {
             setMitarbeiter(mitarbeiter);
-        }
-    }
-
-    class AddMitarbeiterTask extends AsyncTask<Mitarbeiter, Void, Void> {
-
-
-        @Override
-        protected Void doInBackground(Mitarbeiter... mitarbeiter) {
-            Database db = Database.getDatabase(MitarbeiterListActivity.this);
-            db.mitarbeiterDao().insertMitarbeiter(mitarbeiter);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            refresh();
         }
     }
 

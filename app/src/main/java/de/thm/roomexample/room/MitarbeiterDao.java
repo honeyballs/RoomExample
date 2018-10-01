@@ -31,7 +31,7 @@ public interface MitarbeiterDao {
     @Query("SELECT * FROM mitarbeiter WHERE id = :id")
     public Mitarbeiter getMitarbeiterById(int id);
 
-    @Query("SELECT * FROM mitarbeiter WHERE abt_id = :abtId")
+    @Query("SELECT * FROM mitarbeiter WHERE abt_id = :abtId ORDER BY salary DESC")
     public List<Mitarbeiter> getMitarbeiterOfAbteilung(int abtId);
 
 }

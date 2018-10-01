@@ -9,7 +9,7 @@ import android.content.Context;
  * Created by Yannick Bals on 24.04.2018.
  */
 
-@android.arch.persistence.room.Database(entities = {Abteilung.class, Mitarbeiter.class}, version = 1)
+@android.arch.persistence.room.Database(entities = {Abteilung.class, Mitarbeiter.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class Database extends RoomDatabase {
 
@@ -20,7 +20,7 @@ public abstract class Database extends RoomDatabase {
 
     public static Database getDatabase(Context context) {
         if (instance == null) {
-            instance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "abteilungs_db").build();
+            instance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "abteilungs_db").fallbackToDestructiveMigration().build();
         }
         return instance;
     }

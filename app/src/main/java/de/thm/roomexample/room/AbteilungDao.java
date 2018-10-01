@@ -25,7 +25,7 @@ public interface AbteilungDao {
     @Update
     public void updateAbteilungen(Abteilung...abteilungen);
 
-    @Query("SELECT * FROM abteilungen")
+    @Query("SELECT * FROM abteilungen ORDER BY name ASC")
     public List<Abteilung> getAllAbteilungen();
 
     @Query("SELECT * FROM abteilungen WHERE id = :id")

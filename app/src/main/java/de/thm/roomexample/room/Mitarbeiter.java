@@ -7,11 +7,18 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
+import static android.arch.persistence.room.ForeignKey.CASCADE;
+
 /**
  * Created by Yannick Bals on 24.04.2018.
  */
 
-@Entity(tableName = "mitarbeiter", foreignKeys = @ForeignKey(entity = Abteilung.class, parentColumns = "id", childColumns = "abt_id"))
+@Entity(tableName = "mitarbeiter",
+        foreignKeys = @ForeignKey(
+                entity = Abteilung.class,
+                parentColumns = "id",
+                childColumns = "abt_id",
+                onDelete = CASCADE))
 public class Mitarbeiter {
 
     @PrimaryKey(autoGenerate = true)
